@@ -1,0 +1,13 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+sqlalchemy[asyncio]==2.0.36
+asyncpg==0.30.0
+pydantic==2.10.4
+numpy==2.2.1
+rapidfuzz==3.11.0
+razdel==0.5.0
+navec==0.10.0
+transformers==4.47.1
+torch==2.5.1
+badwords-py==1.0.0
+pydantic-settings==2.7.1
