@@ -1,0 +1,13 @@
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/searchEditText"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:hint="Поиск"
+    android:background="@drawable/bg_search_field"
+    android:drawableStart="@drawable/ic_search"
+    android:drawablePadding="8dp"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:textColor="@color/text_primary"
+    android:textColorHint="@color/text_secondary"
+    android:textSize="14sp" />

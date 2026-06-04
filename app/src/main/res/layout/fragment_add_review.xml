@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="31dp"
+        android:paddingEnd="20dp">
+
+        <FrameLayout android:layout_width="match_parent" android:layout_height="36dp">
+            <ImageView android:id="@+id/backButton" android:layout_width="28dp" android:layout_height="28dp" android:layout_gravity="start|center_vertical" android:src="@drawable/ic_back" />
+            <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:text="Добавить отзыв" android:textColor="@color/text_primary" android:textSize="16sp" />
+            <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="end|center_vertical" android:src="@drawable/ic_notification" />
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/reviewEditText"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_white_card_outline"
+            android:gravity="top"
+            android:hint="Расскажите о месте"
+            android:padding="12dp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/addReviewButton"
+            android:layout_width="140dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_button_secondary"
+            android:text="Добавить фото"
+            android:textAllCaps="false"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submitReviewButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/bg_button_primary"
+        android:text="Оставить отзыв"
+        android:textAllCaps="false"
+        android:textColor="@color/card_background"
+        android:textSize="13sp" />
+
+    <include layout="@layout/include_bottom_navigation" />
+</LinearLayout>

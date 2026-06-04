@@ -1,0 +1,90 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/authFragment">
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.touristguide.ui.auth.AuthFragment"
+        android:label="auth" />
+    <fragment
+        android:id="@+id/loginRegisterFragment"
+        android:name="com.example.touristguide.ui.auth.LoginRegisterFragment"
+        android:label="loginRegister" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.touristguide.ui.home.HomeFragment"
+        android:label="home" />
+    <fragment
+        android:id="@+id/regionInfoFragment"
+        android:name="com.example.touristguide.ui.region.RegionInfoFragment"
+        android:label="regionInfo" />
+    <fragment
+        android:id="@+id/placesListFragment"
+        android:name="com.example.touristguide.ui.places.PlacesListFragment"
+        android:label="placesList" />
+    <fragment
+        android:id="@+id/placesMapFragment"
+        android:name="com.example.touristguide.ui.map.PlacesMapFragment"
+        android:label="placesMap" />
+    <fragment
+        android:id="@+id/placeDetailFragment"
+        android:name="com.example.touristguide.ui.place_detail.PlaceDetailFragment"
+        android:label="placeDetail" />
+    <fragment
+        android:id="@+id/addReviewFragment"
+        android:name="com.example.touristguide.ui.review.AddReviewFragment"
+        android:label="addReview" />
+    <fragment
+        android:id="@+id/addPhotoFragment"
+        android:name="com.example.touristguide.ui.photo.AddPhotoFragment"
+        android:label="addPhoto" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.touristguide.ui.favorites.FavoritesFragment"
+        android:label="favorites" />
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.touristguide.ui.feed.FeedFragment"
+        android:label="feed" />
+    <fragment
+        android:id="@+id/routesFragment"
+        android:name="com.example.touristguide.ui.routes.RoutesFragment"
+        android:label="routes" />
+    <fragment
+        android:id="@+id/routeDetailFragment"
+        android:name="com.example.touristguide.ui.routes.RouteDetailFragment"
+        android:label="routeDetail" />
+    <fragment
+        android:id="@+id/routeMapFragment"
+        android:name="com.example.touristguide.ui.map.RouteMapFragment"
+        android:label="routeMap" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.touristguide.ui.profile.ProfileFragment"
+        android:label="profile" />
+    <fragment
+        android:id="@+id/myRoutesFragment"
+        android:name="com.example.touristguide.ui.routes.MyRoutesFragment"
+        android:label="myRoutes" />
+    <fragment
+        android:id="@+id/weeklyTaskFragment"
+        android:name="com.example.touristguide.ui.tasks.WeeklyTaskFragment"
+        android:label="weeklyTask" />
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.example.touristguide.ui.achievements.AchievementsFragment"
+        android:label="achievements" />
+    <fragment
+        android:id="@+id/addPlaceFragment"
+        android:name="com.example.touristguide.ui.add_place.AddPlaceFragment"
+        android:label="addPlace" />
+    <fragment
+        android:id="@+id/checkPlaceFragment"
+        android:name="com.example.touristguide.ui.moderation.CheckPlaceFragment"
+        android:label="checkPlace" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.touristguide.ui.notifications.NotificationsFragment"
+        android:label="notifications" />
+</navigation>

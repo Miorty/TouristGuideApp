@@ -1,0 +1,16 @@
+<resources>
+    <string-array name="place_categories">
+        <item>Все</item>
+        <item>Памятники и скульптуры</item>
+        <item>Исторические здания</item>
+        <item>Музеи</item>
+        <item>Где поесть</item>
+    </string-array>
+    <string-array name="report_types">
+        <item>Дубль</item>
+        <item>Ошибка</item>
+        <item>Недостоверная информация</item>
+        <item>Нерелевантное фото</item>
+        <item>Спам</item>
+    </string-array>
+</resources>

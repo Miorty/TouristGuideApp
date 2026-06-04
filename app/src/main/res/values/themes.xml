@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.TouristGuide" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="android:windowBackground">@color/background_light</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:navigationBarColor">@color/background_light</item>
+        <item name="android:statusBarColor">@color/background_light</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="materialButtonStyle">@style/TouristGuideButton</item>
+        <item name="textAppearanceButton">@style/TouristGuideButtonText</item>
+    </style>
+</resources>

@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="26dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="219dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/route_ears_header" />
+
+                <ImageView
+                    android:id="@+id/backButton"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="31dp"
+                    android:background="@drawable/bg_circle_white"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="•••••"
+                android:textColor="@color/route_green"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="36dp"
+                android:text="Зеленая линия"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/startRouteButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="Начать маршрут"
+                android:textAllCaps="false"
+                android:textColor="@color/card_background"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="36dp"
+                android:text="«Зеленая линия» — это главный пешеходный туристический маршрут Перми. Он проходит через исторический центр города, соединяя десятки самых значимых архитектурных и культурных объектов.\n\nВсего за полтора часа можно самостоятельно, без помощи экскурсовода, ознакомиться с самыми примечательными местами Перми.\n\n• Скульптура «Пермяк – соленые уши»\n• Дом купчихи М.М. Барановой\n• Часовня святого Стефана Великопермского\n• Пермская женская учительская гимназия – ДДТ «Пермячок»\n• Выставочный зал Перми"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/showAllButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="Показать все"
+                android:textAllCaps="false"
+                android:textColor="@color/card_background"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/include_bottom_navigation" />
+</LinearLayout>

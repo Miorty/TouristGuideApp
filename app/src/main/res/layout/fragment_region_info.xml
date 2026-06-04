@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="103dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp"
+            android:text="Пермский край: Регион на стыке Европы и Азии, история и современность&#10;&#10;1. География и климат&#10;Пермский край расположен на востоке Русской равнины и западном склоне Уральских гор. Это территория, где соседствуют крупные промышленные города, лесные массивы, реки, исторические поселения и современные культурные пространства.&#10;&#10;2. История и культура&#10;Край известен как один из важных исторических центров Урала. Здесь сформировались торговые пути, промышленная культура и богатая городская среда.&#10;&#10;3. Культура&#10;Пермь активно развивается как культурный центр: театры, музеи, фестивали и городские маршруты делают регион привлекательным для туристов."
+            android:textColor="@color/text_primary"
+            android:textSize="10sp" />
+    </ScrollView>
+
+    <include layout="@layout/include_bottom_navigation" />
+</LinearLayout>

@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingTop="33dp"
+            android:paddingEnd="12dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="25dp" android:background="@drawable/bg_button_primary" android:gravity="center" android:paddingStart="12dp" android:paddingEnd="12dp" android:text="Все" android:textColor="@color/card_background" android:textSize="10sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="25dp" android:layout_marginStart="6dp" android:background="@drawable/bg_route_card" android:gravity="center" android:paddingStart="12dp" android:paddingEnd="12dp" android:text="Памятники и скульптуры" android:textColor="@color/text_primary" android:textSize="10sp" />
+        </LinearLayout>
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="8dp"
+            layout="@layout/include_search_bar" />
+    </FrameLayout>
+
+    <include layout="@layout/include_bottom_navigation" />
+</LinearLayout>

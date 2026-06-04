@@ -1,0 +1,182 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="18dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="219dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/place_bear_header" />
+
+                <ImageView
+                    android:id="@+id/backButton"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="31dp"
+                    android:background="@drawable/bg_circle_white"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="•••••"
+                android:textColor="@color/route_green"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="36dp"
+                android:gravity="center"
+                android:text="«Легенда о Пермском медведе»"
+                android:textColor="@color/text_primary"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="36dp"
+                android:gravity="center"
+                android:text="Скульптура «Легенда о пермском медведе» — это не просто памятник животному, а один из главных неофициальных символов Перми, который иронично обыгрывает стереотипы и одновременно отсылает к древним поверьям."
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/bg_white_card_outline"
+                android:orientation="vertical"
+                android:paddingStart="12dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Информация о месте"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Координаты: 58.01083, 56.23778"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="г. Пермь"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginStart="73dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="73dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_favorite" />
+                <ImageView android:layout_width="36dp" android:layout_height="36dp" android:layout_marginStart="35dp" android:src="@drawable/ic_share" />
+                <ImageView android:id="@+id/addContentButton" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginStart="35dp" android:src="@drawable/ic_add" />
+                <ImageView android:id="@+id/reportButton" android:layout_width="36dp" android:layout_height="36dp" android:layout_marginStart="35dp" android:src="@drawable/ic_report" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/showOnMapButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="Показать на карте"
+                android:textAllCaps="false"
+                android:textColor="@color/card_background"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/bg_audio_bar"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="18dp"
+                android:paddingEnd="16dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_play" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/text_secondary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00 / 01:55"
+                    android:textColor="@color/text_primary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="36dp"
+                android:text="Название «Легенда о Пермском медведе» — это ироничная мистификация и одновременно дань уважения стереотипам. В мире существует устойчивое мнение, что по улицам российских городов бродят медведи. Пермские скульпторы решили превратить шутку в реальность.\n\nС другой стороны, у легенды глубокие исторические корни:\n\n• Герб Перми: Медведь, несущий на спине Евангелие, является главным символом города."
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/include_bottom_navigation" />
+</LinearLayout>
