@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Модерация жалоб</h2>
+{% for complaint in complaints %}
+<div class="card mb-3">
+    <div class="card-body">
+        <p><strong>Тип:</strong> {{ complaint.chapter }}</p>
+        <p><strong>Причина:</strong> {{ complaint.complaint_reason }}</p>
+        <p><strong>Автор жалобы:</strong> {{ complaint.author_name }}</p>
+        <button class="btn btn-success accept" data-id="{{ complaint.uuid_complaint }}">✅ Принять</button>
+        <button class="btn btn-danger reject" data-id="{{ complaint.uuid_complaint }}">❌ Отклонить</button>
+    </div>
+</div>
+{% endfor %}
+
+<script>
+document.querySelectorAll('.accept').forEach(btn => {
+    btn.onclick = async () => {
+        await fetch(`/admin/api/complaint/${btn.dataset.id}/accept`, {method: 'POST'});
+        location.reload();
+    }
+});
+document.querySelectorAll('.reject').forEach(btn => {
+    btn.onclick = async () => {
+        await fetch(`/admin/api/complaint/${btn.dataset.id}/reject`, {method: 'POST'});
+        location.reload();
+    }
+});
+</script>
+{% endblock %}

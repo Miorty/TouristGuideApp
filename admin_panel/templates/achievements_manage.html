@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Управление достижениями</h2>
+<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addAchievementModal">
+    <i class="fas fa-plus"></i> Добавить достижение
+</button>
+
+<div class="row">
+    {% for ach in achievements %}
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>{{ ach.achievement_nm }}</h5>
+                <p>{{ ach.description }}</p>
+                <p><strong>XP:</strong> +{{ ach.reward_points }}</p>
+                <button class="btn btn-sm btn-danger delete-ach" data-id="{{ ach.uuid_achievement }}">Удалить</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="modal fade" id="addAchievementModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h5>Добавить достижение</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+            <div class="modal-body">
+                <form id="addAchievementForm" enctype="multipart/form-data">
+                    <input type="text" name="achievement_nm" class="form-control mb-2" placeholder="Название" required>
+                    <textarea name="description" class="form-control mb-2" placeholder="Описание" required></textarea>
+                    <input type="number" name="reward_points" class="form-control mb-2" placeholder="XP за достижение" required>
+                    <input type="file" name="icon" class="form-control mb-2" accept="image/png,image/svg+xml" required>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="saveAchievement()">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+async function saveAchievement() {
+    let form = new FormData(document.getElementById('addAchievementForm'));
+    let response = await fetch('/admin/api/achievement/add', {method: 'POST', body: form});
+    if (response.ok) location.reload();
+}
+
+document.querySelectorAll('.delete-ach').forEach(btn => {
+    btn.onclick = async () => {
+        if (confirm('Удалить достижение?')) {
+            let resp = await fetch(`/admin/api/achievement/${btn.dataset.id}/delete`, {method: 'POST'});
+            let result = await resp.json();
+            if (result.success) location.reload();
+            else alert(result.error);
+        }
+    }
+});
+</script>
+{% endblock %}

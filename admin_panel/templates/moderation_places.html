@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Модерация мест</h2>
+{% for place in places %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h4>{{ place.place_nm }}</h4>
+        <p><strong>Автор:</strong> {{ place.author_name }} (рейтинг: {{ place.author_rating }})</p>
+        <p>{{ place.brief_description }}</p>
+        <p><strong>История:</strong> {{ place.historical_background }}</p>
+        <p><strong>Координаты:</strong> {{ place.latitude }}, {{ place.longitude }}</p>
+        <button class="btn btn-success approve" data-id="{{ place.uuid_place }}">✅ Одобрить</button>
+        <button class="btn btn-danger reject" data-id="{{ place.uuid_place }}">❌ Отклонить</button>
+    </div>
+</div>
+{% endfor %}
+
+<script>
+document.querySelectorAll('.approve').forEach(btn => {
+    btn.onclick = async () => {
+        await fetch(`/admin/api/place/${btn.dataset.id}/approve`, {method: 'POST'});
+        location.reload();
+    }
+});
+document.querySelectorAll('.reject').forEach(btn => {
+    btn.onclick = async () => {
+        let reason = prompt("Причина отказа:");
+        if (reason) {
+            let form = new FormData();
+            form.append('reason', reason);
+            await fetch(`/admin/api/place/${btn.dataset.id}/reject`, {method: 'POST', body: form});
+            location.reload();
+        }
+    }
+});
+</script>
+{% endblock %}

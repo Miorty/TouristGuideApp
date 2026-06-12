@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Управление маршрутами</h2>
+<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addRouteModal">
+    <i class="fas fa-plus"></i> Добавить маршрут
+</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr><th>Название</th><th>Кол-во мест</th><th>Действия</th></tr>
+    </thead>
+    <tbody>
+        {% for route in routes %}
+        <tr>
+            <td>{{ route.ready_route_nm }}</td>
+            <td>{{ route.places_count }}</td>
+            <td>
+                <button class="btn btn-sm btn-danger delete-route" data-id="{{ route.uuid_ready_route }}">Удалить</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="modal fade" id="addRouteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h5>Добавить маршрут</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+            <div class="modal-body">
+                <form id="addRouteForm">
+                    <input type="text" name="route_nm" class="form-control mb-2" placeholder="Название маршрута" required>
+                    <select name="places_ids" class="form-control mb-2" multiple size="5">
+                        {% for place in places %}
+                        <option value="{{ place.uuid_place }}">{{ place.place_nm }}</option>
+                        {% endfor %}
+                    </select>
+                    <small class="text-muted">Удерживайте Ctrl для выбора нескольких мест</small>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="saveRoute()">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+async function saveRoute() {
+    let form = new FormData(document.getElementById('addRouteForm'));
+    let places = Array.from(document.querySelector('select[name="places_ids"]').selectedOptions).map(o => o.value);
+    form.set('places_ids', places.join(','));
+    let response = await fetch('/admin/api/route/add', {method: 'POST', body: form});
+    if (response.ok) location.reload();
+}
+
+document.querySelectorAll('.delete-route').forEach(btn => {
+    btn.onclick = async () => {
+        if (confirm('Удалить маршрут?')) {
+            await fetch(`/admin/api/route/${btn.dataset.id}/delete`, {method: 'POST'});
+            location.reload();
+        }
+    }
+});
+</script>
+{% endblock %}

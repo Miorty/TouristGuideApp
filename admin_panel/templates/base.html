@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ панель - Туристический гид</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sidebar { min-height: 100vh; background: #2c3e50; color: white; }
+        .sidebar a { color: white; text-decoration: none; padding: 10px 20px; display: block; }
+        .sidebar a:hover { background: #34495e; }
+        .content { padding: 20px; }
+        .card { margin-bottom: 20px; }
+        .btn-sm { margin: 2px; }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar p-0">
+                <h4 class="text-center p-3">Туристический гид</h4>
+                <hr>
+                <a href="/admin/dashboard"><i class="fas fa-tachometer-alt"></i> Главная</a>
+                <a href="/admin/places"><i class="fas fa-map-marker-alt"></i> Управление местами</a>
+                <a href="/admin/routes"><i class="fas fa-route"></i> Управление маршрутами</a>
+                <a href="/admin/achievements"><i class="fas fa-trophy"></i> Управление достижениями</a>
+                <a href="/admin/tasks"><i class="fas fa-tasks"></i> Управление заданиями</a>
+                <a href="/admin/moderation/places"><i class="fas fa-check-double"></i> Модерация мест</a>
+                <a href="/admin/moderation/complaints"><i class="fas fa-flag"></i> Модерация жалоб</a>
+                <hr>
+                <a href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Выход</a>
+            </div>
+            <div class="col-md-10 content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

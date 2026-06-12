@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Управление заданиями</h2>
+<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+    <i class="fas fa-plus"></i> Добавить задание
+</button>
+<button class="btn btn-success mb-3" id="generateTasks">
+    <i class="fas fa-calendar-week"></i> Сформировать задания на неделю
+</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr><th>Название</th><th>Описание</th><th>Цель</th><th>Категория</th><th>Активно</th><th>Действия</th></tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.exercise_nm }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.target_value }}</td>
+            <td>{{ task.category }}</td>
+            <td>{% if task.is_active %}✅{% else %}❌{% endif %}</td>
+            <td><button class="btn btn-sm btn-danger delete-task" data-id="{{ task.uuid_exercise }}">Удалить</button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="modal fade" id="addTaskModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h5>Добавить задание</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+            <div class="modal-body">
+                <form id="addTaskForm">
+                    <input type="text" name="exercise_nm" class="form-control mb-2" placeholder="Название" required>
+                    <textarea name="description" class="form-control mb-2" placeholder="Описание" required></textarea>
+                    <input type="number" name="target_value" class="form-control mb-2" placeholder="Целевое значение" required>
+                    <select name="category" class="form-control mb-2">
+                        <option value="user">Для пользователей</option>
+                        <option value="moderator">Для модераторов</option>
+                    </select>
+                    <label><input type="checkbox" name="is_active" value="true"> Активно</label>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="saveTask()">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+async function saveTask() {
+    let form = new FormData(document.getElementById('addTaskForm'));
+    let response = await fetch('/admin/api/task/add', {method: 'POST', body: form});
+    if (response.ok) location.reload();
+}
+
+document.querySelectorAll('.delete-task').forEach(btn => {
+    btn.onclick = async () => {
+        if (confirm('Удалить задание?')) {
+            await fetch(`/admin/api/task/${btn.dataset.id}/delete`, {method: 'POST'});
+            location.reload();
+        }
+    }
+});
+
+document.getElementById('generateTasks').onclick = async () => {
+    let response = await fetch('/admin/api/tasks/generate', {method: 'POST'});
+    let result = await response.json();
+    alert(`Создано ${result.count} заданий`);
+};
+</script>
+{% endblock %}
